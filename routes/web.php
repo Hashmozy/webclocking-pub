@@ -3,7 +3,14 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ClockingController;
 use Inertia\Inertia;
+
+
+
+Route::get('/clockings', [ClockingController::class, 'index'])->name('clockings.index');
+Route::post('/clockings/clockin', [ClockingController::class, 'clockIn'])->name('clockings.clockin');
+Route::post('/clockings/clockout', [ClockingController::class, 'clockOut'])->name('clockings.clockout');
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
